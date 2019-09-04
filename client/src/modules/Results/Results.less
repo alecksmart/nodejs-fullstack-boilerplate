@@ -1,0 +1,36 @@
+.Results {
+  padding:8px;
+  text-align: center;
+
+  &-Header {
+    font-weight: bold;
+  }
+
+  &-Rows {
+    min-height: 100px;
+
+    .Result {
+      display: flex;
+      flex-direction: row;
+      min-height: 0;
+      overflow-y: hidden;
+
+      >div {
+        width: calc(33.33333%);
+      }
+    }
+  }
+
+  &-Header, &-Row {
+    display: flex;
+
+    >div {
+      width: calc(33.33333%);
+    }
+  }
+
+  &-Highest {
+    font-size: 1.2em;
+  }
+}
+
