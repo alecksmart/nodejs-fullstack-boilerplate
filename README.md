@@ -1,8 +1,26 @@
 # Fullstack Boilerplate Proof-of-concept Project
 
-## Installation
+## Initial Setup
 
-TBD...
+Tune scripts in package.json.
+Optional tools:
+
+```bash
+sudo npm install -g sequelize-auto
+npm install -g mysql
+# Migrate example
+sequelize-auto -o "./models" -d coding-demo -h localhost -u coding-demo -p 3306 -x coding-demo -e mysql
+# Start MySQL server
+yarn run sequelize-skeleton
+```
+
+## Start development
+
+Add _.password_ file to the root of the project containing the admin password to your development database.
+
+```bash
+yarn start
+```
 
 ## Features
 
@@ -32,6 +50,7 @@ TBD...
 
 - [x] nodejs
 - [x] Webpack
+- [x] concurrently
 - [x] MySQL
 - [x] GraphQL
 - [x] Apollo
