@@ -5,9 +5,24 @@ import { connect } from 'react-redux';
 import map from 'lodash/map';
 import isEmpty from 'lodash/isEmpty';
 import uniqueId from 'lodash/uniqueId';
+
+import { Query } from 'react-apollo';
+import { gql } from 'apollo-boost';
+
 import { getResults } from '../../utils/pointsGame';
 
 import './Results.less';
+
+const query = gql`
+  query {
+    highscores {
+      highscore
+      user {
+        name
+      }
+    }
+  }
+`;
 
 class Results extends PureComponent {
   render() {
@@ -42,8 +57,24 @@ class Results extends PureComponent {
           {total}
         </div>
         <div className="Results-Highest">
-          Highest Score Ever:&nbsp;
+          <h3>Your Highest Score Ever:</h3>
           {highest}
+        </div>
+        <div className="Results-ServerHighscores">
+          <h3>Players from Other Locations:</h3>
+          <Query query={query}>
+            {result => {
+              if (result.loading) return <p>loading...</p>;
+              if (result.error) return <p>{result.error.message}</p>;
+              return result.data.highscores.sort((a, b) => a.highscore < b.highscore).map(d => (
+                <p>
+                  {d.user.name}
+                  :&nbsp;
+                  {d.highscore}
+                </p>
+              ));
+            }}
+          </Query>
         </div>
       </div>
     );

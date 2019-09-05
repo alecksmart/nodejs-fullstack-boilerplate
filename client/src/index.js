@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-// eslint-disable-next-line no-unused-vars
+import { ApolloProvider } from '@apollo/react-hooks';
 import store from './store';
 import GameBoard from './modules/GameBoard/index';
+import { graphqlClient } from './utils/graphqlClient';
 
 import './style/main.less';
 
 ReactDOM.render((
   <Provider store={store}>
-    <GameBoard />
+    <ApolloProvider client={graphqlClient}>
+      <GameBoard />
+    </ApolloProvider>
   </Provider>
 ), document.getElementById('root'));
