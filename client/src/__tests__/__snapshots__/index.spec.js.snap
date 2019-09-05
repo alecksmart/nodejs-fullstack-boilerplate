@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>> Client entry point with store +++ should capture the snapshot of GameBoard 1`] = `
+"<ContextProvider value={{...}}>
+  <Connect(GameBoard) />
+</ContextProvider>"
+`;

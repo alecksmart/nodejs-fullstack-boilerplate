@@ -1,0 +1,26 @@
+.GameField {
+  width: 60vw;
+  min-width: calc(60vw);
+  overflow: auto;
+
+  &-Board {
+    display: grid;
+    grid-gap: 2px;
+    grid-template-columns: repeat(10, calc((60vw/10) - 4px));
+    grid-template-rows: repeat(10, calc((60vw/10) - 4px));
+    grid-auto-flow: column;
+    padding: 10px;
+  }
+}
+
+.Scores {
+  background-color: aquamarine;
+  width: 40vw;
+  overflow: auto;
+
+  ol, ul {
+    padding-left: 16px;
+    margin-left: 8px;
+  }
+}
+

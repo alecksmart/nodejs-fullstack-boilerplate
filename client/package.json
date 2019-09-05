@@ -1,0 +1,88 @@
+{
+  "name": "coding-demo",
+  "version": "1.0.0",
+  "description": "Coding test",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development",
+    "format": "prettier --write \"src/**/*.js\"",
+    "eslint-fix": "eslint --fix \"src/**/*.js\"",
+    "build": "webpack --mode production",
+    "test": "jest",
+    "test:watch": "yarn test --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alecksmart/coding-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alecksmart/coding-demo/issues"
+  },
+  "homepage": "https://github.com/alecksmart/coding-demo#readme",
+  "dependencies": {
+    "@apollo/react-hooks": "^3.0.1",
+    "apollo-boost": "^0.4.4",
+    "graphql": "^14.5.4",
+    "graphql-tag": "^2.10.1",
+    "lodash": "^4.17.15",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-apollo": "^3.0.1",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
+    "redux": "^4.0.4",
+    "redux-actions": "^2.6.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-ignore": "^1.2.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.2",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.1.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.4.0",
+    "eslint": "^6.0.1",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-config-react": "^1.1.7",
+    "eslint-loader": "^2.2.1",
+    "eslint-plugin-import": "^2.18.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.2",
+    "html-webpack-plugin": "^3.2.0",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "prettier": "1.18.2",
+    "react-scripts": "^3.0.1",
+    "react-test-renderer": "^16.8.6",
+    "redux-devtools": "^3.5.0",
+    "redux-mock-store": "^1.5.3",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.36.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|less)$": "<rootDir>/__mocks__/fileMock.js",
+      "shallowWithStore.js": "<rootDir>/__mocks__/shallowWithStore.js",
+      "collectCoverage": true,
+      "coverageReporters": [
+        "json",
+        "html"
+      ],
+      "snapshotSerializers": [
+        "enzyme-to-json/serializer"
+      ]
+    }
+  },
+  "proxy": "http://localhost:4000"
+}

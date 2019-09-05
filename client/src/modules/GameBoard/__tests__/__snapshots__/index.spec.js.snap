@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>> GameBoard Module +++ should capture the snapshot 1`] = `
+"<ContextProvider value={{...}}>
+  <GameBoard store={{...}} isGameOver={false} setNewGame={[Function]} setCellClicked={[Function]} />
+</ContextProvider>"
+`;
