@@ -2,7 +2,7 @@
 
 ## Initial Setup
 
-Use Linux. Tune scripts in package.json.
+Tune scripts in package.json.
 
 ## Start development
 
@@ -17,8 +17,25 @@ password=YOUR_PASSWORD
 Start server application:
 
 ```bash
-yarn start
+yarn run dev
 ```
+
+Check http://localhost:4000/ if you can see the list of high scores.
+
+Check GraphQL playground at http://localhost:4000/graphql
+
+```graphql
+query {
+  highscores {
+    highscore
+    user {
+      name
+    }
+  }
+}
+```
+
+Finally, check the React client part at http://localhost:8080/
 
 ## Features
 
@@ -43,7 +60,9 @@ yarn start
 
 ### Milestone 5
 
-- [ ] Turn this fun project into a template application
+- [ ] Turn this fun project into a template application with test and production builds
+- [ ] Boost security
+- [ ] Dockerize
 
 ## Technologies Implemented
 
@@ -59,9 +78,9 @@ yarn start
 - [x] React
 - [x] React unit testing with jest and enzyme
 - [x] Redux
-- [ ] fetch API
 - [ ] Redux Saga
 - [ ] Reselect
 - [ ] Web workers API
 - [ ] RabbitMQ
 - [ ] Redis
+- [ ] Docker

@@ -33,7 +33,7 @@ db.sequelize.sync().then(() => {
 
   db.highscore.bulkCreate(
     times(20, () => ({
-      highscore: random(200, 300),
+      highscore: random(200, 500),
       userId: random(1, 10),
     })),
   );
