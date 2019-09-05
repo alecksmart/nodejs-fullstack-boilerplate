@@ -1,12 +1,10 @@
 # Fullstack Boilerplate Proof-of-Concept
 
-Please note, this project is not suitable for production for many features are left to be improved. However, at the time of writing this document, all features checked below are fully workable.
+This is a project that connects MySQL database with React client via GraphQL-powered endpoint under one hood.
+
+Please note, this project is not suitable for production for many features are still to be improved. However, at the time of writing this document, all features checked below are fully workable.
 
 ## Initial Setup
-
-Tune scripts in package.json.
-
-## Start development
 
 Add _.my_ file to the root of the project containing the admin password to your development database.
 
