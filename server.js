@@ -7,6 +7,10 @@ import typeDefs from './schema';
 import resolvers from './resolvers';
 import db from './models';
 
+const color = {
+  log: txt => console.log('\x1b[1m\x1b[36m%s\x1b[0m', txt, '\x1b[0m'),
+}
+
 const server = new ApolloServer({
   typeDefs: gql(typeDefs),
   resolvers,
@@ -35,6 +39,6 @@ db.sequelize.sync().then(() => {
   );
 
   app.listen({ port: 4000 }, () =>
-    console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`),
+    color.log(`Server ready at http://localhost:4000${server.graphqlPath} 🚀`),
   );
 });

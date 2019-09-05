@@ -1,9 +1,8 @@
-# Fullstack Boilerplate Proof-of-concept Project
+# Fullstack Boilerplate Proof-of-Concept
 
 ## Initial Setup
 
-Tune scripts in package.json.
-Optional tools:
+Use Linux. Tune scripts in package.json. Optional tools:
 
 ```bash
 sudo npm install -g sequelize-auto
@@ -16,7 +15,15 @@ yarn run sequelize-skeleton
 
 ## Start development
 
-Add _.password_ file to the root of the project containing the admin password to your development database.
+Add _.my_ file to the root of the project containing the admin password to your development database.
+
+```text
+[client]
+user=admin
+password=YOUR_PASSWORD
+```
+
+Start application:
 
 ```bash
 yarn start
@@ -27,6 +34,7 @@ yarn start
 ### Milestone 1
 
 - [x] Designs a simple game
+- [x] Run back-end and front-end as one application
 
 ### Milestone 2
 
@@ -48,6 +56,8 @@ yarn start
 
 ## Technologies Implemented
 
+- [x] vanilla ES6
+- [x] git flow
 - [x] nodejs
 - [x] Webpack
 - [x] concurrently
@@ -56,7 +66,7 @@ yarn start
 - [x] Apollo
 - [x] Less
 - [x] React
-- [x] React unit testing, jest, enzyme
+- [x] React unit testing with jest and enzyme
 - [x] Redux
 - [ ] fetch API
 - [ ] Redux Saga
