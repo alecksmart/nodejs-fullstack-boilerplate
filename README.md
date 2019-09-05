@@ -1,5 +1,7 @@
 # Fullstack Boilerplate Proof-of-Concept
 
+Please note, this project is not suitable for production for many features are left to be improved. However, at the time of writing this document, all features checked below are fully workable.
+
 ## Initial Setup
 
 Tune scripts in package.json.
@@ -64,7 +66,7 @@ Finally, check the React client part at http://localhost:8080/
 - [ ] Boost security
 - [ ] Dockerize
 
-## Technologies Implemented
+## Technologies
 
 - [x] vanilla ES6
 - [x] git flow

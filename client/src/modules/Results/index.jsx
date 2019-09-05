@@ -57,11 +57,11 @@ class Results extends PureComponent {
           {total}
         </div>
         <div className="Results-Highest">
-          <h3>Your Highest Score Ever:</h3>
+          <h3>Your Highest Score:</h3>
           {highest}
         </div>
+        <h3>Players from Other Locations:</h3>
         <div className="Results-ServerHighscores">
-          <h3>Players from Other Locations:</h3>
           <Query query={query}>
             {result => {
               if (result.loading) return <p>loading...</p>;

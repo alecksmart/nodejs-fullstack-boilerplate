@@ -1,5 +1,5 @@
 .Results {
-  padding:8px;
+
   text-align: center;
 
   &-Header {
@@ -7,14 +7,11 @@
   }
 
   &-Rows {
-    min-height: 100px;
-
     .Result {
       display: flex;
       flex-direction: row;
       min-height: 0;
       overflow-y: hidden;
-
       >div {
         width: calc(33.33333%);
       }
@@ -35,7 +32,6 @@
 
   &-ServerHighscores {
     overflow: auto;
-    max-height: 200px;
+    max-height: 120px;
   }
 }
-

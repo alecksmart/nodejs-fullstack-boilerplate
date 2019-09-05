@@ -54,7 +54,8 @@ class GameBoard extends PureComponent {
           onPointSelected={this.onPointSelected}
         />
         <div className="Scores">
-          <h1>How To Play</h1>
+          <h1>Grab Points! Game</h1>
+          <p>How To Play:</p>
           <ol>
             <li>Click &quot;New Game&quot; below</li>
             <li>The field will randomly create 15 pills</li>

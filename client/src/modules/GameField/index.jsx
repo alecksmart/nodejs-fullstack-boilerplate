@@ -32,8 +32,9 @@ class GameField extends PureComponent {
   render() {
     return (
       <div className="GameField">
-        <h1>Grab Points! Game</h1>
-        <div className="GameField GameField-Board">{this.renderMap()}</div>
+        <div className="GameField-Wrap">
+          <div className="GameField GameField-Board">{this.renderMap()}</div>
+        </div>
       </div>
     );
   }
