@@ -20,8 +20,7 @@
     "faker": "^4.1.0",
     "graphql": "^14.5.4",
     "graphql-tag": "^2.10.1",
-    "lodash.random": "^3.2.0",
-    "lodash.times": "^4.3.2",
+    "lodash": "^4.17.15",
     "mysql2": "^1.7.0",
     "sequelize": "^5.18.1"
   },

@@ -4,30 +4,31 @@ import gql from 'graphql-tag';
 const client = new ApolloClient();
 const query = gql`
   query {
-    posts {
-      title
-      author {
-        firstName
+    highscores {
+      highscore
+      user {
+        name
       }
     }
   }
 `;
 
 const { body } = document;
-
 client.query({ query }).then((results) => {
-  // eslint-disable-next-line no-use-before-define
-  results.data.posts.forEach((post) => renderPost(body, post));
+  results.data.highscores
+    .sort((a, b) => a.highscore < b.highscore)
+    // eslint-disable-next-line no-use-before-define
+    .forEach((element) => renderElement(body, element));
 });
 
-const renderPost = (body, post) => {
+const renderElement = (body, element) => {
   const section = document.createElement('section');
   const domString = `
     <p>
-      <strong>Post: </strong>${post.title}
+      <strong>User: </strong>${element.user.name}
     </p>
     <p>
-      <strong>Author: </strong>${post.author.firstName}
+      <strong>Score: </strong>${element.highscore}
     </p>
   `;
   section.innerHTML = domString;

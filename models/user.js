@@ -27,9 +27,9 @@ export default function (sequelize, DataTypes) {
     tableName: 'users',
   });
 
-  // User.associate = (models) => {
-  //   User.hasMany(models.highscore);
-  // };
+  User.associate = (models) => {
+    User.hasMany(models.highscore);
+  };
 
   return User;
 }

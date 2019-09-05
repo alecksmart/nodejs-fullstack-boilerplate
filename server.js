@@ -1,15 +1,15 @@
 import express from 'express';
 import { ApolloServer, gql } from 'apollo-server-express';
 import faker from 'faker';
-import times from 'lodash.times';
-import random from 'lodash.random';
+import times from 'lodash/times';
+import random from 'lodash/random';
 import typeDefs from './schema';
 import resolvers from './resolvers';
 import db from './models';
 
 const color = {
   log: txt => console.log('\x1b[1m\x1b[36m%s\x1b[0m', txt, '\x1b[0m'),
-}
+};
 
 const server = new ApolloServer({
   typeDefs: gql(typeDefs),

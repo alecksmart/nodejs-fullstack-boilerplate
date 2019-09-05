@@ -2,16 +2,7 @@
 
 ## Initial Setup
 
-Use Linux. Tune scripts in package.json. Optional tools:
-
-```bash
-sudo npm install -g sequelize-auto
-npm install -g mysql
-# Migrate example
-sequelize-auto -o "./models" -d coding-demo -h localhost -u coding-demo -p 3306 -x coding-demo -e mysql
-# Start MySQL server
-yarn run sequelize-skeleton
-```
+Use Linux. Tune scripts in package.json.
 
 ## Start development
 
@@ -23,7 +14,7 @@ user=admin
 password=YOUR_PASSWORD
 ```
 
-Start application:
+Start server application:
 
 ```bash
 yarn start
