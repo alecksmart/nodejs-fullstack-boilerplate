@@ -3,8 +3,8 @@ import { ApolloServer, gql } from 'apollo-server-express';
 import faker from 'faker';
 import times from 'lodash/times';
 import random from 'lodash/random';
-import typeDefs from './schema';
-import resolvers from './resolvers';
+import typeDefs from './schemas';
+import resolvers from './resolvers/resolvers';
 import db from './models';
 
 const color = {

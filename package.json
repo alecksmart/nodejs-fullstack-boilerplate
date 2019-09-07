@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "build": "NODE_ENV=development && webpack --entry ./app/public/js/index.js --output-filename bundle.min.js --output-path ./app/public/js ",
-    "start": "yarn run init-db && ./node_modules/nodemon/bin/nodemon.js --exec babel-node server.js",
-    "server": "./node_modules/nodemon/bin/nodemon.js --exec babel-node server.js",
+    "start": "yarn run init-db && ./node_modules/nodemon/bin/nodemon.js --exec babel-node ./src/server.js",
+    "server": "./node_modules/nodemon/bin/nodemon.js --exec babel-node ./src/server.js",
     "dev": "concurrently \"yarn run server\" \"yarn run client\"",
     "client": "cd client && yarn start && cd -",
-    "sequelize-skeleton": "./node_modules/sequelize-cli/lib/sequelize init:models; ./node_modules/sequelize-cli/lib/sequelize init:config",
+    "sequelize-skeleton": "./node_modules/sequelize-cli/lib/sequelize init:src/models; ./node_modules/sequelize-cli/lib/sequelize init:config",
     "init-db": "/usr/bin/mysql --defaults-extra-file=.my < .sql"
   },
   "keywords": [],
@@ -22,6 +22,7 @@
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "graphql": "^14.5.4",
+    "graphql-import": "^0.7.1",
     "graphql-tag": "^2.10.1",
     "lodash": "^4.17.15",
     "mysql2": "^1.7.0",
