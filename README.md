@@ -78,8 +78,8 @@ Finally, check the React client part at http://localhost:8080/
 - [x] React
 - [x] React unit testing with jest and enzyme
 - [x] Redux
-- [ ] Redux Saga
-- [ ] Reselect
+- [x] Redux Saga
+- [x] Reselect
 - [ ] Web workers API
 - [ ] RabbitMQ
 - [ ] Redis

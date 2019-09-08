@@ -4,14 +4,14 @@
   "env": {
     "browser": true,
     "node": true,
-    "jest": true,
+    "jest": true
   },
   "globals": {
     "it": true,
     "describe": true,
     "before": true,
     "after": true,
-    "browser": true,
+    "browser": true
   },
   "settings": {
     "react": {
@@ -37,6 +37,8 @@
     "react/jsx-filename-extension": 0,
     "import/prefer-default-export": 0,
     "no-shadow": 0,
+    "no-plusplus": 0,
     "react/prefer-stateless-function": [2, { "ignorePureComponents": true }],
+    "react/jsx-props-no-spreading": 0
   }
 }

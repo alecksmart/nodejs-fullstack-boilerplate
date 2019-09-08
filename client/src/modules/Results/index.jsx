@@ -5,26 +5,32 @@ import { connect } from 'react-redux';
 import map from 'lodash/map';
 import isEmpty from 'lodash/isEmpty';
 import uniqueId from 'lodash/uniqueId';
+import { userLoginRequested } from '../../actions/user';
 
-import { Query } from 'react-apollo';
-import { gql } from 'apollo-boost';
+// import { Query } from 'react-apollo';
+// import { gql } from 'apollo-boost';
 
 import { getResults } from '../../utils/pointsGame';
 
 import './Results.less';
 
-const query = gql`
-  query {
-    highscores {
-      highscore
-      user {
-        name
-      }
-    }
-  }
-`;
+// const query = gql`
+//   query {
+//     highscores {
+//       highscore
+//       user {
+//         name
+//       }
+//     }
+//   }
+// `;
 
 class Results extends PureComponent {
+  componentDidMount() {
+    const { userLoginRequested } = this.props;
+    userLoginRequested();
+  }
+
   render() {
     const { bonuses, total, highest, log } = this.props;
     const results = !isEmpty(log) ? getResults(log) : {};
@@ -60,7 +66,7 @@ class Results extends PureComponent {
           <h3>Your Highest Score:</h3>
           {highest}
         </div>
-        <h3>Players from Other Locations:</h3>
+        {/* <h3>Players from Other Locations:</h3>
         <div className="Results-ServerHighscores">
           <Query query={query}>
             {result => {
@@ -75,7 +81,7 @@ class Results extends PureComponent {
               ));
             }}
           </Query>
-        </div>
+        </div> */}
       </div>
     );
   }
@@ -86,6 +92,7 @@ Results.propTypes = {
   total: PropTypes.number,
   highest: PropTypes.number,
   log: PropTypes.any,
+  userLoginRequested: PropTypes.func.isRequired,
 };
 
 Results.defaultProps = {
@@ -102,4 +109,8 @@ const mapStateToProps = state => ({
   log: state.pointsGame.log,
 });
 
-export default connect(mapStateToProps)(Results);
+const mapDispatchToProps = {
+  userLoginRequested,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Results);
