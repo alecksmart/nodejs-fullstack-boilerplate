@@ -17,7 +17,7 @@ export const HIGHSCORE_LOADING = actionNames([
 
 export const initialState = {
   user: {},
-  highScores: [],
+  highscores: [],
   errors: [],
   loading: [],
 };
@@ -35,7 +35,7 @@ export default handleActions({
       ...state,
       loading: state.loading.filter(e => e !== HIGHSCORE_LOADING.FETCH_HIGHSCORES_REQUESTED),
       errors: [],
-      highScores: action.payload.highScores,
+      highscores: action.payload.highscores,
     };
   },
   [fetchHighcoreFailed](state, action) {

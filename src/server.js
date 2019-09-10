@@ -22,25 +22,23 @@ server.applyMiddleware({ app });
 
 app.use(express.static('app/public'));
 
-db.sequelize.transaction((t) => {
-  const options = { raw: true, transaction: t };
+db.sequelize.transaction((transaction) => {
+  const options = { raw: true, transaction };
 
   return db.sequelize
     .query('SET FOREIGN_KEY_CHECKS = 0', options)
     .then(() => db.sequelize.query('truncate table highscores', options))
     .then(() => db.sequelize.query('truncate table users', options))
     .then(() => db.sequelize.query('SET FOREIGN_KEY_CHECKS = 1', options));
-}).then(() => {
-  db.user.bulkCreate(
-    times(10, () => ({
-      name: faker.name.firstName(),
-      password: faker.name.lastName(),
-    })));
-  db.highscore.bulkCreate(
-    times(20, () => ({
-      highscore: random(200, 500),
-      userId: random(1, 10),
-    })));
+}).then(() => db.user.bulkCreate(
+  times(10, () => ({
+    name: faker.name.firstName(),
+    password: faker.name.lastName(),
+  })))).then(() => db.highscore.bulkCreate(
+  times(20, () => ({
+    highscore: random(200, 500),
+    userId: random(1, 10),
+  })))).then(() => {
   app.listen({ port: 4000 }, () =>
     color.log(`Server ready at http://localhost:4000${server.graphqlPath} 🚀`),
   );

@@ -6,8 +6,8 @@ const webpack = require('webpack');
 const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
-  devtool: 'cheap-source-map',
   mode: 'development',
+  devtool: 'inline-source-map',
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -42,8 +42,8 @@ module.exports = {
     ],
   },
   plugins: [
-    // new webpack.ProgressPlugin(),
-    new webpack.NamedModulesPlugin(),
+    new webpack.SourceMapDevToolPlugin({}),
+    // new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve('./index.html'),
     }),
