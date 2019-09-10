@@ -76,11 +76,12 @@ Finally, check the React client part at http://localhost:8080/
 - [x] Apollo
 - [x] Less
 - [x] React
-- [x] React unit testing with jest and enzyme
 - [x] Redux
 - [x] Redux Saga
 - [x] Reselect
-- [ ] Web workers API
 - [ ] RabbitMQ
+- [ ] Web Workers + Web Sockets + GraphQL
 - [ ] Redis
+- [ ] Unit tests, integration tests and end-to-end tests
+- [ ] UI testing using puppeteer
 - [ ] Docker

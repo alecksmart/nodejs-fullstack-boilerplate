@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`>>> Cell snapshot +++ should capture the snapshot of Cell 1`] = `
-"<ContextProvider value={{...}}>
-  <Cell store={{...}} type=\\"A\\" onPointSelected={[Function: mockConstructor]} isGameOver={false} />
-</ContextProvider>"
-`;

@@ -6,6 +6,18 @@ import {
   userLoginFailed,
 } from '../actions/user';
 
+// import { gql } from 'apollo-boost';
+// const query = gql`
+//   query {
+//     highscores {
+//       highscore
+//       user {
+//         name
+//       }
+//     }
+//   }
+// `;
+
 function* performLogin() {
   try {
     // do client

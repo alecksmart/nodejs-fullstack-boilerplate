@@ -5,6 +5,8 @@ import {
   userLoginSucceded,
   userLoginFailed,
 
+  userLogOut,
+
   userRegisterRequested,
   userRegisterSucceded,
   userRegisterFailed,
@@ -45,7 +47,12 @@ export default handleActions({
       errors: action.payload.errors,
     };
   },
-
+  [userLogOut](state) {
+    return {
+      ...state,
+      ...initialState,
+    };
+  },
   [userRegisterRequested](state) {
     return {
       ...state,

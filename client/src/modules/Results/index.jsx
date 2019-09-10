@@ -5,30 +5,18 @@ import { connect } from 'react-redux';
 import map from 'lodash/map';
 import isEmpty from 'lodash/isEmpty';
 import uniqueId from 'lodash/uniqueId';
-import { userLoginRequested } from '../../actions/user';
 
-// import { Query } from 'react-apollo';
-// import { gql } from 'apollo-boost';
-
+import { fetchHighcoreRequested } from '../../actions/highscore';
 import { getResults } from '../../utils/pointsGame';
 
 import './Results.less';
 
-// const query = gql`
-//   query {
-//     highscores {
-//       highscore
-//       user {
-//         name
-//       }
-//     }
-//   }
-// `;
-
 class Results extends PureComponent {
   componentDidMount() {
-    const { userLoginRequested } = this.props;
-    userLoginRequested();
+    const { fetchHighcoreRequested } = this.props;
+    fetchHighcoreRequested();
+    // const { userLoginRequested } = this.props;
+    // userLoginRequested();
   }
 
   render() {
@@ -92,7 +80,7 @@ Results.propTypes = {
   total: PropTypes.number,
   highest: PropTypes.number,
   log: PropTypes.any,
-  userLoginRequested: PropTypes.func.isRequired,
+  fetchHighcoreRequested: PropTypes.func.isRequired,
 };
 
 Results.defaultProps = {
@@ -110,7 +98,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  userLoginRequested,
+  fetchHighcoreRequested,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Results);

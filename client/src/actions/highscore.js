@@ -11,8 +11,8 @@ export const highscoreActions = actionNames([
   'PUSH_HIGHSCORE_FAILED',
 ]);
 
-export const fetchHighcoreRequested = createAction(highscoreActions.FETCH_HIGHSCORES_SUCCEDED);
-export const fetchHighcoreSucceded = createAction(highscoreActions.FETCH_HIGHSCORES_REQUESTED);
+export const fetchHighcoreRequested = createAction(highscoreActions.FETCH_HIGHSCORES_REQUESTED);
+export const fetchHighcoreSucceded = createAction(highscoreActions.FETCH_HIGHSCORES_SUCCEDED);
 export const fetchHighcoreFailed = createAction(highscoreActions.FETCH_HIGHSCORES_FAILED);
 
 export const pushHighcoreRequested = createAction(highscoreActions.PUSH_HIGHSCORE_REQUESTED);

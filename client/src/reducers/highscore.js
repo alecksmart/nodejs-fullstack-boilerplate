@@ -19,6 +19,7 @@ export const initialState = {
   user: {},
   highScores: [],
   errors: [],
+  loading: [],
 };
 
 export default handleActions({

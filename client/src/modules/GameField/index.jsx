@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import uniqueId from 'lodash/uniqueId';
-import Cell from '../../components/Cell';
+import Cell from '../Cell';
 import {
   POINTGAME_ROWS,
   POINTGAME_COLS,
@@ -17,11 +17,11 @@ class GameField extends PureComponent {
     const collection = [];
     for (let x = 0; x < POINTGAME_ROWS; x++) {
       for (let y = 0; y < POINTGAME_COLS; y++) {
-        const k = uniqueId(`${x}_${y}_`);
         let props = checkTile(pointsMap, x, y);
         if (props === false) {
           props = { x, y, type: '', clicked: false };
         }
+        const k = uniqueId(`${x}_${y}_`);
         collection.push(<Cell key={k} onPointSelected={onPointSelected} {...props} />);
       }
     }

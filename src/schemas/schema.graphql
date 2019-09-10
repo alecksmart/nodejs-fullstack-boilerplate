@@ -17,12 +17,17 @@ type Highscore {
 }
 
 type Query {
-  highscores: [Highscore!]!
+  highscores(
+    offset: Int
+    limit: Int
+    order: String
+  ): [Highscore!]!
   users: [User!]!
   highscore(id: ID!): Highscore
   user(id: ID!): User
 }
 
 type Mutation {
-  createHighscore(highscore:Int!, user_id: ID!): Highscore!
+  addUser(name: String!, password: String!): User!
+  addHighscore(highscore:Int!, user_id: ID!): Highscore!
 }

@@ -6,6 +6,8 @@ export const userActions = actionNames([
   'USER_LOGIN_SUCCEDED',
   'USER_LOGIN_FAILED',
 
+  'USER_LOGOUT',
+
   'USER_REGISTER_REQUESTED',
   'USER_REGISTER_SUCCEDED',
   'USER_REGISTER_FAILED',
@@ -14,6 +16,8 @@ export const userActions = actionNames([
 export const userLoginRequested = createAction(userActions.USER_LOGIN_REQUESTED);
 export const userLoginSucceded = createAction(userActions.USER_LOGIN_SUCCEDED);
 export const userLoginFailed = createAction(userActions.USER_LOGIN_FAILED);
+
+export const userLogOut = createAction(userActions.USER_LOGOUT);
 
 export const userRegisterRequested = createAction(userActions.USER_REGISTER_REQUESTED);
 export const userRegisterSucceded = createAction(userActions.USER_REGISTER_SUCCEDED);
