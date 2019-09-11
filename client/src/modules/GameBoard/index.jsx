@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -11,32 +11,25 @@ import { makeMap } from '../../utils/pointsGame';
 
 import './GameBoard.less';
 
-class GameBoard extends PureComponent {
-  constructor(props) {
-    super(props);
+export const GameBoard = ({ setNewGame, setCellClicked }) => {
+  const [pointsMap, setPointsMap] = useState([]);
+  useEffect(() => {
+    setPointsMap(makeMap());
+  }, []);
 
-    const pointsMap = makeMap();
-    this.state = {
-      pointsMap,
-    };
-  }
-
-  onNewGame = () => {
-    const { setNewGame } = this.props;
-    const pointsMap = makeMap();
-    this.setState({ pointsMap });
+  const onNewGame = () => {
+    setPointsMap(makeMap());
     setNewGame();
-  }
+  };
 
-  onPointSelected = (celldata) => {
+  const onPointSelected = celldata => {
     const { type } = celldata;
-    const { setCellClicked } = this.props;
     setCellClicked({
       logEntry: { type },
     });
-  }
+  };
 
-  renderScores = () => (
+  const renderScores = () => (
     <ul className="Scores-Rules">
       <li>A: costs: 50, each 3-rd gives adds +50 bonus</li>
       <li>B: costs: 30, each 2-nd gives adds +30 bonus</li>
@@ -45,49 +38,43 @@ class GameBoard extends PureComponent {
     </ul>
   );
 
-  render() {
-    const { pointsMap } = this.state;
-    return (
-      <div className="GameBoard">
-        <GameField
-          pointsMap={pointsMap}
-          onPointSelected={this.onPointSelected}
-        />
-        <div className="Scores">
-          <h1>Grab Points! Game</h1>
-          <p>How To Play:</p>
-          <ol>
-            <li>Click &quot;New Game&quot; below</li>
-            <li>The field will randomly create 15 pills</li>
-            <li>Open 10 pills of 15 trying to guess the best score</li>
-            <li>
-              Bonuses for pills types:
-              {this.renderScores()}
-            </li>
-            <li>After opening 10 pills, the game is over, and the High Score count is updated</li>
-            <li>Proceed to Step 1 to start over</li>
-          </ol>
-          <h1>SCORES</h1>
-          <Results />
-          <Toolbar onNewGame={this.onNewGame} />
-        </div>
+  return (
+    <div className="GameBoard">
+      <GameField
+        pointsMap={pointsMap}
+        onPointSelected={onPointSelected}
+      />
+      <div className="Scores">
+        <h1>Grab Points! Game</h1>
+        <p>How To Play:</p>
+        <ol>
+          <li>Click &quot;New Game&quot; below</li>
+          <li>The field will randomly create 15 pills</li>
+          <li>Open 10 pills of 15 trying to guess the best score</li>
+          <li>
+            Bonuses for pills types:
+            {renderScores()}
+          </li>
+          <li>After opening 10 pills, the game is over, and the High Score count is updated</li>
+          <li>Proceed to Step 1 to start over</li>
+        </ol>
+        <h1>SCORES</h1>
+        <Results />
+        <Toolbar onNewGame={onNewGame} />
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
 
 GameBoard.propTypes = {
   setCellClicked: PropTypes.func.isRequired,
   setNewGame: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
-  isGameOver: state.pointsGame.isGameOver,
-});
-
 const mapDispatchToProps = {
   setNewGame,
   setCellClicked,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(GameBoard);
+export default connect(null, mapDispatchToProps)(GameBoard);

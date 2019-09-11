@@ -7,9 +7,7 @@ import typeDefs from './schemas';
 import resolvers from './resolvers/resolvers';
 import db from './models';
 
-const color = {
-  log: txt => console.log('\x1b[1m\x1b[36m%s\x1b[0m', txt, '\x1b[0m'),
-};
+const color = { log: txt => console.log('\x1b[1m\x1b[36m%s\x1b[0m', txt, '\x1b[0m') };
 
 const server = new ApolloServer({
   typeDefs: gql(typeDefs),
@@ -19,27 +17,31 @@ const server = new ApolloServer({
 
 const app = express();
 server.applyMiddleware({ app });
-
 app.use(express.static('app/public'));
 
-db.sequelize.transaction((transaction) => {
+db.sequelize.transaction(async transaction => {
   const options = { raw: true, transaction };
 
-  return db.sequelize
+  await db.sequelize
     .query('SET FOREIGN_KEY_CHECKS = 0', options)
     .then(() => db.sequelize.query('truncate table highscores', options))
     .then(() => db.sequelize.query('truncate table users', options))
     .then(() => db.sequelize.query('SET FOREIGN_KEY_CHECKS = 1', options));
-}).then(() => db.user.bulkCreate(
-  times(10, () => ({
-    name: faker.name.firstName(),
-    password: faker.name.lastName(),
-  })))).then(() => db.highscore.bulkCreate(
-  times(20, () => ({
-    highscore: random(200, 500),
-    userId: random(1, 10),
-  })))).then(() => {
-  app.listen({ port: 4000 }, () =>
-    color.log(`Server ready at http://localhost:4000${server.graphqlPath} 🚀`),
-  );
-});
+
+  await db.user.bulkCreate(
+    times(10, () => ({
+      name: faker.name.firstName(),
+      password: faker.name.lastName(),
+    })));
+
+  await db.highscore.bulkCreate(
+    times(20, () => ({
+      highscore: random(200, 500),
+      userId: random(1, 10),
+    })));
+})
+  .then(() => {
+    app.listen({ port: 4000 }, () =>
+      color.log(`Server at http://localhost:4000${server.graphqlPath} 🚀  Client at http://localhost:8080`));
+  })
+  .catch((e) => console.log(e));
