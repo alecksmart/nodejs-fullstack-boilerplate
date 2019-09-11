@@ -22,7 +22,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.less$/, // .less and .css
+        test: /\.less$/,
         use: [
           isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
           'css-loader',
@@ -43,7 +43,7 @@ module.exports = {
   },
   plugins: [
     new webpack.SourceMapDevToolPlugin({}),
-    // new webpack.NamedModulesPlugin(),
+    new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve('./index.html'),
     }),

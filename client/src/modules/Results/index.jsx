@@ -13,13 +13,19 @@ import Spinner from '../../components/Spinner';
 
 import './Results.less';
 
-export const Results = (props) => {
+export const Results = ({
+  bonuses,
+  total,
+  highest,
+  log,
+  highscores,
+  isLoading,
+  fetchHighcoreRequested,
+}) => {
   useEffect(() => {
-    const { fetchHighcoreRequested } = props;
     fetchHighcoreRequested();
   }, []);
 
-  const { bonuses, total, highest, log, highscores, isLoading } = props;
   const results = !isEmpty(log) ? getResults(log) : {};
 
   return (
@@ -80,6 +86,7 @@ Results.propTypes = {
   log: PropTypes.instanceOf(Array),
   highscores: PropTypes.instanceOf(Array).isRequired,
   isLoading: PropTypes.bool.isRequired,
+  fetchHighcoreRequested: PropTypes.func.isRequired,
 };
 
 Results.defaultProps = {

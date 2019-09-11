@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import uniqueId from 'lodash/uniqueId';
@@ -11,9 +11,8 @@ import { checkTile } from '../../utils/pointsGame';
 
 import './GameField.less';
 
-class GameField extends PureComponent {
-  renderMap() {
-    const { pointsMap, onPointSelected } = this.props;
+export const GameField = ({ pointsMap, onPointSelected }) => {
+  const renderMap = () => {
     const collection = [];
     for (let x = 0; x < POINTGAME_ROWS; x++) {
       for (let y = 0; y < POINTGAME_COLS; y++) {
@@ -26,18 +25,16 @@ class GameField extends PureComponent {
       }
     }
     return collection;
-  }
+  };
 
-  render() {
-    return (
-      <div className="GameField">
-        <div className="GameField-Wrap">
-          <div className="GameField GameField-Board">{this.renderMap()}</div>
-        </div>
+  return (
+    <div className="GameField">
+      <div className="GameField-Wrap">
+        <div className="GameField GameField-Board">{renderMap()}</div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 GameField.propTypes = {
   pointsMap: PropTypes.arrayOf(PropTypes.shape({})),

@@ -79,6 +79,7 @@ Finally, check the React client part at http://localhost:8080/
 - [x] Redux
 - [x] Redux Saga
 - [x] Reselect
+- [ ] Router
 - [ ] RabbitMQ
 - [ ] Web Workers + Web Sockets + GraphQL
 - [ ] Redis

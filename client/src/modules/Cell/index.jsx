@@ -1,47 +1,38 @@
-/* eslint-disable react/prop-types */
-import React, { PureComponent } from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import './Cell.less';
 
-class Cell extends PureComponent {
-  constructor(props) {
-    super(props);
+export const Cell = ({ type, isGameOver, onPointSelected, x, y }) => {
+  const [clicked, setClicked] = useState(false);
 
-    this.state = {
-      clicked: false,
-    };
-  }
-
-  onClick = () => {
-    const { onPointSelected, x, y, type } = this.props;
-
-    this.setState({ clicked: true });
+  const onClick = () => {
+    setClicked({ clicked: true });
     onPointSelected({ x, y, type });
-  }
+  };
 
-  getDisabled = () => {
-    const { type, isGameOver } = this.props;
-    const { clicked } = this.state;
-    return type === '' || clicked || isGameOver;
-  }
+  const getDisabled = () => type === '' || clicked || isGameOver;
 
-  render() {
-    const { type } = this.props;
-    const { clicked } = this.state;
+  return (
+    <button
+      type="button"
+      className={`Cell Cell--${type ? 'clickable' : 'nonclickable'} Cell--${clicked ? 'clicked' : 'active'}`}
+      disabled={getDisabled()}
+      onClick={onClick}
+    >
+      {type !== '' && clicked ? type : ' '}
+    </button>
+  );
+};
 
-    return (
-      <button
-        type="button"
-        className={`Cell Cell--${type ? 'clickable' : 'nonclickable'} Cell--${clicked ? 'clicked' : 'active'}`}
-        disabled={this.getDisabled()}
-        onClick={this.onClick}
-      >
-        {type !== '' && clicked ? type : ' '}
-      </button>
-    );
-  }
-}
+Cell.propTypes = {
+  x: PropTypes.number.isRequired,
+  y: PropTypes.number.isRequired,
+  type: PropTypes.string.isRequired,
+  isGameOver: PropTypes.bool.isRequired,
+  onPointSelected: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = state => ({
   isGameOver: state.pointsGame.isGameOver,

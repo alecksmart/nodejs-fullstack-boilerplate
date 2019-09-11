@@ -1,30 +1,24 @@
-/* eslint-disable react/no-unused-prop-types */
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import './Toolbal.less';
 
-class Toolbar extends PureComponent {
-  render() {
-    const { onNewGame, isGameOver } = this.props;
-    return (
-      <div className="Toolbar">
-        <button
-          type="button"
-          onClick={onNewGame}
-        >
-          New Game
-        </button>
-        {isGameOver && (
-          <div className="Toolbar Toolbar-GameOver">
-            Game Over, click the button above to try again...
-          </div>
-        )}
-      </div>
-    );
-  }
-}
+export const Toolbar = ({ onNewGame, isGameOver }) => (
+  <div className="Toolbar">
+    <button
+      type="button"
+      onClick={onNewGame}
+    >
+        New Game
+    </button>
+    {isGameOver && (
+    <div className="Toolbar Toolbar-GameOver">
+          Game Over, click the button above to try again...
+    </div>
+    )}
+  </div>
+);
 
 Toolbar.propTypes = {
   onNewGame: PropTypes.func.isRequired,
