@@ -46,25 +46,24 @@ Finally, check the React client part at http://localhost:8080/
 
 ### Milestone 2
 
+- [x] Pull high scores by other players from server
+
+### Milestone 3
+
 - [ ] Auth for player
 - [ ] Save high scores on server in a database
 
-### Milestone 3
+### Milestone 4
 
 - [ ] Implement realtime high score polling from multiple players
 - [ ] Implement dynamic rules for bonuses
 
-### Milestone 4
-
-- [ ] Use player geolocation
-
 ### Milestone 5
 
-- [ ] Turn this fun project into a template application with test and production builds
 - [ ] Boost security
 - [ ] Dockerize
 
-## Technologies
+## Under the Hood
 
 - [x] vanilla ES6
 - [x] git flow
