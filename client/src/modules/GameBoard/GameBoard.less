@@ -4,11 +4,23 @@
 
   & h1 {
     background-color: darkslateblue;
-    width: 100%;
     height: 40px;
+    line-height: 40px;
     color: white;
     text-align: center;
-    line-height: 40px;
     vertical-align: middle;
   }
 }
+
+@media all and (orientation:portrait) {
+  .GameBoard {
+    flex-direction: column;
+  }
+}
+
+@media all and (orientation:landscape) {
+  .GameBoard {
+    flex-direction: row;
+  }
+}
+
