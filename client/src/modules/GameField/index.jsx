@@ -1,9 +1,8 @@
-/* eslint-disable no-plusplus */
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import uniqueId from 'lodash/uniqueId';
-import Cell from '../../components/Cell';
+import Cell from '../Cell';
 import {
   POINTGAME_ROWS,
   POINTGAME_COLS,
@@ -12,32 +11,30 @@ import { checkTile } from '../../utils/pointsGame';
 
 import './GameField.less';
 
-class GameField extends PureComponent {
-  renderMap() {
-    const { pointsMap, onPointSelected } = this.props;
+export const GameField = ({ pointsMap, onPointSelected }) => {
+  const renderMap = () => {
     const collection = [];
     for (let x = 0; x < POINTGAME_ROWS; x++) {
       for (let y = 0; y < POINTGAME_COLS; y++) {
-        const k = uniqueId(`${x}_${y}_`);
         let props = checkTile(pointsMap, x, y);
         if (props === false) {
           props = { x, y, type: '', clicked: false };
         }
+        const k = uniqueId(`${x}_${y}_`);
         collection.push(<Cell key={k} onPointSelected={onPointSelected} {...props} />);
       }
     }
     return collection;
-  }
+  };
 
-  render() {
-    return (
-      <div className="GameField">
-        <h1>Grab Points! Game</h1>
-        <div className="GameField GameField-Board">{this.renderMap()}</div>
+  return (
+    <div className="GameField">
+      <div className="GameField-Wrap">
+        <div className="GameField GameField-Board">{renderMap()}</div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 GameField.propTypes = {
   pointsMap: PropTypes.arrayOf(PropTypes.shape({})),

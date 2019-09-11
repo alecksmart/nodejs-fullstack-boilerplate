@@ -1,24 +1,28 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const webpack = require('webpack');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
+  mode: 'development',
   devtool: 'inline-source-map',
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
     publicPath: '/',
     filename: 'bundle.js',
+    sourceMapFilename: '[name].js.map',
   },
   devServer: {
     contentBase: './build',
+    hot: true,
   },
   module: {
     rules: [
       {
-        test: /\.less$/, // .less and .css
+        test: /\.less$/,
         use: [
           isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
           'css-loader',
@@ -30,9 +34,16 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader', 'eslint-loader'],
       },
+      {
+        test: /\.(graphql|gql)$/,
+        exclude: /node_modules/,
+        loader: 'graphql-tag/loader',
+      },
     ],
   },
   plugins: [
+    new webpack.SourceMapDevToolPlugin({}),
+    new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve('./index.html'),
     }),

@@ -1,10 +1,10 @@
 # Fullstack Boilerplate Proof-of-Concept
 
+This is a project that connects MySQL database with React client via GraphQL-powered endpoint under one hood.
+
+Please note, this project is not suitable for production for many features are still to be improved. However, at the time of writing this document, all features checked below are fully workable.
+
 ## Initial Setup
-
-Tune scripts in package.json.
-
-## Start development
 
 Add _.my_ file to the root of the project containing the admin password to your development database.
 
@@ -46,25 +46,24 @@ Finally, check the React client part at http://localhost:8080/
 
 ### Milestone 2
 
+- [x] Pull high scores by other players from server
+
+### Milestone 3
+
 - [ ] Auth for player
 - [ ] Save high scores on server in a database
 
-### Milestone 3
+### Milestone 4
 
 - [ ] Implement realtime high score polling from multiple players
 - [ ] Implement dynamic rules for bonuses
 
-### Milestone 4
-
-- [ ] Use player geolocation
-
 ### Milestone 5
 
-- [ ] Turn this fun project into a template application with test and production builds
 - [ ] Boost security
 - [ ] Dockerize
 
-## Technologies Implemented
+## Under the Hood
 
 - [x] vanilla ES6
 - [x] git flow
@@ -76,11 +75,13 @@ Finally, check the React client part at http://localhost:8080/
 - [x] Apollo
 - [x] Less
 - [x] React
-- [x] React unit testing with jest and enzyme
 - [x] Redux
-- [ ] Redux Saga
-- [ ] Reselect
-- [ ] Web workers API
+- [x] Redux Saga
+- [x] Reselect
+- [ ] Router
 - [ ] RabbitMQ
+- [ ] Web Workers + Web Sockets + GraphQL
 - [ ] Redis
+- [ ] Unit tests, integration tests and end-to-end tests
+- [ ] UI testing using puppeteer
 - [ ] Docker
