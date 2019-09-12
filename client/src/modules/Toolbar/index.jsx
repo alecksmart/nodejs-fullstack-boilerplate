@@ -1,21 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
 
 import './Toolbal.less';
 
 export const Toolbar = ({ onNewGame, isGameOver }) => (
   <div className="Toolbar">
-    <button
-      type="button"
-      onClick={onNewGame}
-    >
-        New Game
-    </button>
+    <Button variant="contained" color="primary" onClick={onNewGame}>
+      New Game
+    </Button>
     {isGameOver && (
-    <div className="Toolbar Toolbar-GameOver">
-          Game Over, click the button above to try again...
-    </div>
+      <div className="Toolbar Toolbar-GameOver">
+        Game Over, click the button above to try again...
+      </div>
     )}
   </div>
 );

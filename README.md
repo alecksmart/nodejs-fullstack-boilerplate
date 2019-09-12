@@ -14,6 +14,14 @@ user=admin
 password=YOUR_PASSWORD
 ```
 
+Install
+
+```bash
+yarn install && cd client && yarn install && cd ..
+```
+
+Start mysql server.
+
 Start server application:
 
 ```bash
@@ -78,6 +86,7 @@ Finally, check the React client part at http://localhost:8080/
 - [x] Redux
 - [x] Redux Saga
 - [x] Reselect
+- [x] Material UI
 - [ ] Router
 - [ ] RabbitMQ
 - [ ] Web Workers + Web Sockets + GraphQL
