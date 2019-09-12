@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "coding-demo",
-    "password": "coding-demo",
-    "database": "coding-demo",
+    "username": "nodejs-fullstack-boilerplate",
+    "password": "nodejs-fullstack-boilerplate",
+    "database": "nodejs-fullstack-boilerplate",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false
