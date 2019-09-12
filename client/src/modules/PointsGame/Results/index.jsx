@@ -5,11 +5,11 @@ import map from 'lodash/map';
 import isEmpty from 'lodash/isEmpty';
 import uniqueId from 'lodash/uniqueId';
 
-import { fetchHighcoreRequested } from '../../actions/highscore';
-import { highscoresSelector } from '../../selectors/highscores';
-import { getResults } from '../../utils/pointsGame';
+import { fetchHighcoreRequested } from '../../../actions/highscore';
+import { highscoresSelector } from '../../../selectors/highscores';
+import { getResults } from '../../../utils/pointsGame';
 
-import Spinner from '../../components/Spinner';
+import Spinner from '../../../components/Spinner';
 
 import './Results.less';
 

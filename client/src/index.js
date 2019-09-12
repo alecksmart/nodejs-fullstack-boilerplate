@@ -5,7 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store';
-import GameBoard from './modules/GameBoard/index';
+import GameBoard from './modules/PointsGame/GameBoard/index';
 
 import './style/main.less';
 

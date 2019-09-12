@@ -6,8 +6,8 @@ import Cell from '../Cell';
 import {
   POINTGAME_ROWS,
   POINTGAME_COLS,
-} from '../../config/pointsGame';
-import { checkTile } from '../../utils/pointsGame';
+} from '../../../config/pointsGame';
+import { checkTile } from '../../../utils/pointsGame';
 
 import './GameField.less';
 

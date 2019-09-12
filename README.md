@@ -59,7 +59,7 @@ Check http://localhost:4000/ if you can see the list of high scores. Finally, ch
 
 ## Under the Hood
 
-- [x] vanilla ES6
+- [x] Vanilla ES6
 - [x] git flow
 - [x] nodejs
 - [x] Webpack
@@ -73,7 +73,7 @@ Check http://localhost:4000/ if you can see the list of high scores. Finally, ch
 - [x] Redux Saga
 - [x] Reselect
 - [x] Material UI
-- [ ] Router
+- [x] Router
 - [ ] RabbitMQ
 - [ ] Web Workers + Web Sockets + GraphQL
 - [ ] Redis
