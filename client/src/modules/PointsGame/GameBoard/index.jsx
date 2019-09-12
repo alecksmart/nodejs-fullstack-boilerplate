@@ -6,8 +6,8 @@ import GameField from '../GameField';
 import Results from '../Results';
 import Toolbar from '../Toolbar';
 
-import { setNewGame, setCellClicked } from '../../actions/pointsGame';
-import { makeMap } from '../../utils/pointsGame';
+import { setNewGame, setCellClicked } from '../../../actions/pointsGame';
+import { makeMap } from '../../../utils/pointsGame';
 
 import './GameBoard.less';
 
