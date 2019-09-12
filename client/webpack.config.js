@@ -16,7 +16,7 @@ module.exports = {
     sourceMapFilename: '[name].js.map',
   },
   devServer: {
-    contentBase: './build',
+    historyApiFallback: true,
     hot: true,
   },
   module: {

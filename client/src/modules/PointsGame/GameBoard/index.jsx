@@ -66,7 +66,6 @@ export const GameBoard = ({ setNewGame, setCellClicked }) => {
   );
 };
 
-
 GameBoard.propTypes = {
   setCellClicked: PropTypes.func.isRequired,
   setNewGame: PropTypes.func.isRequired,
