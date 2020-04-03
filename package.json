@@ -25,6 +25,7 @@
     "graphql": "^15.0.0",
     "graphql-import": "^1.0.1",
     "graphql-tag": "^2.10.3",
+    "kind-of": "^6.0.3",
     "lodash": "^4.17.15",
     "mysql2": "^2.1.0",
     "sequelize": "^5.21.5"
